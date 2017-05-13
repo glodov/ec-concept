@@ -1,8 +1,14 @@
 {
-    "name": "glodov/ec-concept",
-    "autoload": {
-        "psr-0" : {
-            "Weaverryan\\DangerZone" : "src"
-        }
-    }
+	"name": "glodov/ec-concept",
+	"version": "dev-master",
+	"source": {
+		"url": "git://github.com/glodov/ec-concept.git",
+		"type": "git",
+		"reference": "master"
+	},
+	"autoload": {
+		"psr-0" : {
+			"ecConcept" : "src"
+		}
+	}
 }
