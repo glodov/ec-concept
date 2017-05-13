@@ -5,19 +5,18 @@ namespace ecConcept\Events;
 class Event
 {
 	public $name;
-	public $object;
-	public $target;
-	public $args = [];
+	public $callback;
 
 	public function __construct(
 		$name, 
-		$object, 
-		$target = null, 
-		array $args = [])
+		$callback)
 	{
-		$this->name   = $name;
-		$this->object = $object;
-		$this->target = $target;
-		$this->args   = $args;
+		$this->name     = $name;
+		$this->callback = $callback;
+	}
+
+	public function call($object = null, array $args = [])
+	{
+		return call_user_func_array($this->callback, [$object, $args]);
 	}
 }

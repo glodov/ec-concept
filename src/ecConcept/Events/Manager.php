@@ -9,7 +9,7 @@ abstract class Manager implements \ecConcept\Bootstrap\BootstrapInterface
 
 	abstract protected function onInit();
 
-	protected static function registerAllowed($name)
+	public static function registerAllowed($name)
 	{
 		if (is_array($name)) {
 			foreach ($name as $item) {
@@ -24,11 +24,35 @@ abstract class Manager implements \ecConcept\Bootstrap\BootstrapInterface
 		return true;
 	}
 
-	protected static function registerEvent(array $events)
+	public static function registerEvent(Event $event)
+	{
+		if (is_array(self::$__allowed) && !in_array($event->name, self::$__allowed)) {
+			trigger_error("Event is not allowed");
+			return false;
+		}
+		self::$__events[] = $event;
+		return true;
+	}
+
+	public static function registerEvents(array $events)
 	{
 		foreach ($events as $name) {
 			static::registerEvent($name);
 		}
+	}
+
+	public static function getEvents($name = false)
+	{
+		if (false === $name) {
+			return self::$__events;
+		}
+		$result = [];
+		foreach (self::$__events as $event) {
+			if ($name === $event->name) {
+				$result[] = $event;
+			}
+		}
+		return $result;
 	}
 
 	public function run()

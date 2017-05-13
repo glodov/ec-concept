@@ -4,7 +4,7 @@ namespace ecConcept\Events;
 
 interface EventableInterface
 {
-	public function addEvent(Event $event);
+	public static function addEvent(Event $event);
 
-	public function triggerEvent($name, $target = null, $args = []);
+	public static function triggerEvent($name, $target = null, $args = []);
 }
