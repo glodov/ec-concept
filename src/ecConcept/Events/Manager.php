@@ -2,7 +2,7 @@
 
 namespace ecConcept\Events;
 
-abstract class Manager implements \eeConcept\Bootstrap\BootstrapInterface
+abstract class Manager implements \ecConcept\Bootstrap\BootstrapInterface
 {
 	private static $__events = [];
 	private static $__allowed;

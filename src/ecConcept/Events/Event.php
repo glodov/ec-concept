@@ -9,7 +9,11 @@ class Event
 	public $target;
 	public $args = [];
 
-	public function __construct($name, $object, $target = null, array $args = [])
+	public function __construct(
+		$name, 
+		$object, 
+		$target = null, 
+		array $args = [])
 	{
 		$this->name   = $name;
 		$this->object = $object;
