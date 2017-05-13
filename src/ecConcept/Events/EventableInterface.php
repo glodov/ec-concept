@@ -6,5 +6,5 @@ interface EventableInterface
 {
 	public static function addEvent(Event $event);
 
-	public static function triggerEvent($name, $target = null, $args = []);
+	public static function triggerEvent($name, $target = null, array $args = []);
 }
