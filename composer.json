@@ -1,0 +1,8 @@
+{
+    "name": "glodov/ec-concept",
+    "autoload": {
+        "psr-0" : {
+            "Weaverryan\\DangerZone" : "src"
+        }
+    }
+}
